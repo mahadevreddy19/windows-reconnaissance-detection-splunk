@@ -1,0 +1,5 @@
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+EventID=1
+Image="*whoami.exe"
+
+| table _time Image ParentImage ParentCommandLine CommandLine User
