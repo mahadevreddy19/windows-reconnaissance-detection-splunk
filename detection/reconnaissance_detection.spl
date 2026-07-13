@@ -1,0 +1,13 @@
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+EventID=1
+
+| search CommandLine="*whoami*" OR
+CommandLine="*hostname*" OR
+CommandLine="*systeminfo*" OR
+CommandLine="*ipconfig*" OR
+CommandLine="*netstat*" OR
+CommandLine="*ping*" OR
+CommandLine="*nslookup*"
+
+| table _time Image CommandLine ParentImage User
+| sort _time
