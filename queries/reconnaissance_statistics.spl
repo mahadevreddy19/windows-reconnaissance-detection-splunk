@@ -1,0 +1,6 @@
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+EventID=1
+ParentImage="*powershell*"
+
+| stats count by Image
+| sort -count
